@@ -13,14 +13,8 @@ const resultText = document.getElementById("result-text");
 
 //Options values for buttons
 let options = {
-  Frukt: [
-    "Äpple",
-    "Blåbär",
-    "Mandarin",
-    "Pineapple",
-    "Vattenmelon",
-  ],
-  Djur: ["Hedgehog","Rhinoceros", "Squirrel", "Panther", "Walrus", "Zebra"],
+  Frukt: ["Äpple", "Blåbär", "Mandarin", "Pineapple", "Vattenmelon"],
+  Djur: ["Hedgehog", "Rhinoceros", "Squirrel", "Panther", "Walrus", "Zebra"],
   Länder: [
     "Indien",
     "ungern",
@@ -38,7 +32,7 @@ let chosenWord = "";
 
 //Display option buttons
 const displayOptions = () => {
-  optionsContainer.innerHTML += `<h3>Select An Option to play!</h3>`;
+  optionsContainer.innerHTML += `<h3>Välj ett alternativ att spela!</h3>`;
   let buttonCon = document.createElement("div");
   for (let value in options) {
     buttonCon.innerHTML += `<button class="options" onclick="generateWord('${value}')">${value}</button>`;
@@ -67,7 +61,7 @@ const generateWord = (optionValue) => {
   let optionsButtons = document.querySelectorAll(".options");
   //If optionValur matches the button innerText then highlight the button
   optionsButtons.forEach((button) => {
-    if (button.innerText.toLowerCase() === optionValue) {
+    if (button.innerText.toLowerCase() === optionValue.toLowerCase()) {
       button.classList.add("active");
     }
     button.disabled = true;
@@ -104,19 +98,19 @@ const initializer = () => {
   //For creating letter buttons
   for (let i = 65; i < 94; i++) {
     let button = document.createElement("button");
-    if (i===91) {
+    if (i === 91) {
       button.classList.add("letters");
       button.innerText = String.fromCharCode(197);
-      }else if (i===92) {
-        button.classList.add("letters");
-        button.innerText = String.fromCharCode(196);
-      }else if (i===93) {
-        button.classList.add("letters");
-        button.innerText = String.fromCharCode(214);
-      }else {
-        button.classList.add("letters");
-        button.innerText = String.fromCharCode(i);
-      }
+    } else if (i === 92) {
+      button.classList.add("letters");
+      button.innerText = String.fromCharCode(196);
+    } else if (i === 93) {
+      button.classList.add("letters");
+      button.innerText = String.fromCharCode(214);
+    } else {
+      button.classList.add("letters");
+      button.innerText = String.fromCharCode(i);
+    }
     button.addEventListener("click", () => {
       let charArray = chosenWord.split("");
       let dashes = document.getElementsByClassName("dashes");
@@ -147,7 +141,7 @@ const initializer = () => {
         if (count == 6) {
           setTimeout(() => {
             resultText.innerHTML = `<h2 class="lose-msg">Du förlorar!!</h2><p>Ordet var <span>${chosenWord}</span></p>`;
-          blocker();
+            blocker();
           }, 1000);
         }
       }
@@ -252,5 +246,3 @@ const drawMan = (count) => {
 //New Game
 newGameButton.addEventListener("click", initializer);
 window.onload = initializer;
-
-
