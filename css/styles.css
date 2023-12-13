@@ -16,7 +16,13 @@ body {
   );
 }
 .U03 {
-  background-color: silver;
+  /* background-color: rgba(148, 187, 233, 1); */
+  background-image: linear-gradient(
+    to right,
+    rgba(238, 174, 202, 1),
+    rgba(148, 187, 233, 1),
+    rgba(238, 174, 202, 1)
+  );
 }
 
 .U03 h1 {
@@ -54,7 +60,7 @@ article > h2 {
 article > p {
   text-align: center;
   color: white;
-  margin-top: -1.5em;
+  /* margin-top: -1.5em; */
   line-height: 1.6;
   font-size: 1.1em;
   letter-spacing: 0.05em;
@@ -180,7 +186,12 @@ canvas {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: silver;
+  background-image: linear-gradient(
+    to right,
+    rgba(238, 174, 202, 1),
+    rgba(148, 187, 233, 1),
+    rgba(238, 174, 202, 1)
+  );
   text-align: center;
   font-size: 3em;
   text-align: center;
@@ -210,19 +221,20 @@ canvas {
     padding: 1em;
   }
   article > p {
-    margin-top: -1.5em;
+    /* margin-top: -1.5em;
     line-height: 30px;
     font-size: 1.1em;
     letter-spacing: 0.05em;
-    padding: 10px;
+    padding: 10px; */
+    display: none;
   }
 
   .container {
     padding: 1.5em;
-    margin-top: 30%;
+    /* margin-top: 30%; */
   }
   canvas {
-    width: 60vw;
+    /* width: 60vw; */
   }
   #options-container div {
     flex-direction: column;
